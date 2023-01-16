@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import api from '../../services/api';
 import './filme.css';
 function Filme(){
     const { id } = useParams();
+    const navigate = useNavigate();
     const [filme, setFilme] = useState([]);
     const [loading,setLoading] = useState(true);
 
@@ -20,11 +21,12 @@ function Filme(){
                 setLoading(false);
             })
             .catch(()=>{
-                console.log("Filme não encontrado");
+                alert("Filme não encontrado");
+                navigate ("/", {replace: true});
             })
         }
         loadFilme();
-    }, [])
+    }, [navigate, id])
 
     if(loading){
         return(
@@ -39,12 +41,12 @@ function Filme(){
             <img src={`https://image.tmdb.org/t/p/original/${filme.backdrop_path}`} alt={filme.title}></img>
             <h3>Sinopse</h3>
             <span>{filme.overview}</span>
-            <strog>Avaliação: {filme.vote_average} / 10</strog>
+            <strong>Avaliação: {filme.vote_average} / 10</strong>
 
             <div className="area-buttons">
             <button>Salvar</button>
                 <button>
-                    <a href="#">Trailer</a>
+                    <a target="_blank" rel="external" href={`https://youtube.com/results?search_query=${filme.title} Trailer`}>Trailer</a>
                 </button>
             </div>
         </div>
