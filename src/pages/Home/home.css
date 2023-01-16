@@ -41,3 +41,10 @@
     border-bottom-right-radius: 8px;
     
 }
+
+.loading{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 14px;
+}
