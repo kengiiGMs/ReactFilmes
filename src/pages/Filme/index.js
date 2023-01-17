@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from '../../services/api';
+import { toast } from 'react-toastify';
 import './filme.css';
 function Filme(){
     const { id } = useParams();
@@ -21,7 +22,7 @@ function Filme(){
                 setLoading(false);
             })
             .catch(()=>{
-                alert("Filme não encontrado");
+                toast.warn("Filme não encontrado")
                 navigate ("/", {replace: true});
             })
         }
@@ -36,13 +37,13 @@ function Filme(){
         const hasFilmes = filmesSalvos.some( (filmesSalvos) => filmesSalvos.id === filme.id)
 
         if(hasFilmes){
-            alert("ESSE FILME JA ESTÁ NA LISTA");
+            toast.warn("Esse filme já está na sua Lista")
             return;
         }
 
         filmesSalvos.push(filme);
         localStorage.setItem("filmes", JSON.stringify(filmesSalvos));
-        alert("Filme Salvo com Sucesso")
+        toast.success("Filme salvo com sucesso!!!")
     }
 
     if(loading){
