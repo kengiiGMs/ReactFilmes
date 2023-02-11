@@ -15,7 +15,7 @@ function Home(){
                     page: 1,
                 }
             });
-
+            
             setFilmes(response.data.results.slice(0, 10));
             setLoading(false);
         }
@@ -39,7 +39,9 @@ function Home(){
                             <article key={filme.id}>
                                 <strong>{filme.title}</strong>
                                 <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title}></img>
-                                <Link to={`/filme/${filme.id}`}>Acessar</Link>
+                                <div className='areaLinkFilme'>
+                                    <Link to={`/filme/${filme.id}`}>Acessar</Link>
+                                </div>
                             </article>
                         )
                     })

@@ -10,7 +10,7 @@
 }
 
 .meus-filmes span{
-    font-size: 18PX;
+    font-size: 18px;
 }
 
 .meus-filmes ul{
@@ -33,6 +33,17 @@
 
 .meus-filmes div a {
     text-decoration: none;
-    color: aqua;
+    color: white;
     margin-right: 14px;
+    padding: 10px;
+    background-color: mediumseagreen;
+}
+
+.meus-filmes div button{
+    color: white;
+    margin-right: 14px;
+    padding: 12px;
+    background-color: crimson;
+    border: none;
+
 }

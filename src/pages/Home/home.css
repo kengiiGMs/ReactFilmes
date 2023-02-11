@@ -22,24 +22,28 @@
     width: 900px;
     max-width: 100%;
     max-height: 340px;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
 
+.areaLinkFilme{
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    margin-top: 14px;
+}
+
 .lista-filmes a {
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0;
     font-size: 24px;
-    background-color: aqua;
+    background-color: mediumseagreen;
     color: white;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    
+    padding: 0 80px;
+    transition: all 0.4s;
 }
 
 .loading{
@@ -47,4 +51,10 @@
     justify-content: center;
     align-self: center;
     margin-top: 14px;
+}
+
+.lista-filmes a:hover{
+    color: mediumseagreen;
+    background-color: white ;
+    border: 1px solid mediumseagreen;
 }
